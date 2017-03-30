@@ -14,7 +14,8 @@ angular.module('YeoAngular.controllers', [])
       'AngularJS',
       'Karma'
     ];
-    
+
+    //Paging
     $scope.totalItems = 64;
     $scope.currentPage = 4;
 
@@ -29,7 +30,47 @@ angular.module('YeoAngular.controllers', [])
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
+    //Paging
 
+//Grid
+$scope.myData = [
+    {
+        "firstName": "Cox",
+        "lastName": "Carney",
+        "company": "Enormo",
+        "employed": true
+    },
+    {
+        "firstName": "Lorraine",
+        "lastName": "Wise",
+        "company": "Comveyer",
+        "employed": false
+    },
+    {
+        "firstName": "Nancy",
+        "lastName": "Waters",
+        "company": "Fuelton",
+        "employed": false
+    }
+];
+
+$scope.gridOptions = {
+    enableRowSelection: true,
+    enableSelectAll: true,
+    selectionRowHeaderWidth: 35,
+    rowHeight: 35,
+    showGridFooter:true
+  };
+ 
+  $scope.gridOptions.columnDefs = [
+    // { name: 'id' },
+    // { name: 'name'},
+    // { name: 'age', displayName: 'Age (not focusable)', allowCellFocus : false },
+    // { name: 'address.city' }
+  ];
+  $scope.gridOptions.data = $scope.myData;
+  $scope.gridOptions.multiSelect = true;
+//Grid
      $scope.loginData = {};
      $scope.loginData.userName = "test";
      $scope.loginData.password = "test";

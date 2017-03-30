@@ -15,7 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch','ui.bootstrap','restangular','YeoAngular.services','YeoAngular.controllers','YeoAngular.constants.module'
+    'ngTouch','ui.bootstrap','ngTouch', 'ui.grid', 'ui.grid.selection','restangular','YeoAngular.services','YeoAngular.controllers','YeoAngular.constants.module'
   ])
   .config(['$routeProvider','$locationProvider','environmentSettingProvider','RestangularProvider',
   function ($routeProvider, $locationProvider , environmentSettingProvider, RestangularProvider) {
