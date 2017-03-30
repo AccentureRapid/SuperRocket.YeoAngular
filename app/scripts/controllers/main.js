@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name pvApp.controller:MainCtrl
+ * @name YeoAngular.controller:MainCtrl
  * @description
  * # MainCtrl
  * Controller of the pvApp
  */
-angular.module('pvApp')
+angular.module('YeoAngular')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

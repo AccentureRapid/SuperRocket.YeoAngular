@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name pvApp
+ * @name YeoAngular
  * @description
- * # pvApp
+ * # YeoAngular
  *
  * Main module of the application.
  */
 angular
-  .module('pvApp', [
+  .module('YeoAngular', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

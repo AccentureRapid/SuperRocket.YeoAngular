@@ -34,6 +34,8 @@ module.exports = function(config) {
       'bower_components/vega/vega.js',
       'bower_components/vega-lite/vega-lite.js',
       'bower_components/viscompass/compass.js',
+      'bower_components/lodash/lodash.js',
+      'bower_components/restangular/dist/restangular.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
