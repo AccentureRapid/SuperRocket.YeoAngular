@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('YeoAngular.services', [])
     .factory('mainService.data', ['Restangular','environmentSetting',
         function (Restangular,environmentSetting) {
@@ -6,7 +8,7 @@ angular.module('YeoAngular.services', [])
                     var url = environmentSetting.YeoAngularRoutes.login;
                     return Restangular.all(url).post(data);
                 } 
-            }
+            };
         }
     ])
     .factory('mainService', ['$rootScope','mainService.data',
@@ -15,8 +17,10 @@ angular.module('YeoAngular.services', [])
                 login: function (data) {
                     return mainServiceModel.login(data).then(function (result) {
                         return result;
-                    })
+                    });
                 }
-            }
+            };
+
+            
          return viewModels;
 }]);

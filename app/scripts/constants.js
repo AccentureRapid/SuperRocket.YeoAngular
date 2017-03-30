@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('YeoAngular.constants.module', [])
     .constant('YeoAngular.constants', {})
     .constant('YeoAngular.constants.environment', {
@@ -40,7 +42,7 @@ angular.module('YeoAngular.constants.module', [])
                 upload: 'media',
                 region: 'ip-country'
             }
-        }
+        };
 
 
         this.setEnvironment = function (environment) {
@@ -66,7 +68,7 @@ angular.module('YeoAngular.constants.module', [])
                 config_ENV.BASE_URL = envs.STAGE.BASE_URL;
                 config_ENV.ESO_URL = envs.STAGE.ESO_URL;
                 config_ENV.ADMIN_URL = envs.STAGE.ADMIN_URL;
-                config = config_ENV
+                config = config_ENV;
             }
             else if (environment === envs.PROD.ENV) {
                 config_ENV.BASE_URL = envs.PROD.BASE_URL;

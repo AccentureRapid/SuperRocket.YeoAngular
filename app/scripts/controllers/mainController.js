@@ -18,16 +18,16 @@ angular.module('YeoAngular.controllers', [])
      $scope.loginData = {};
      $scope.loginData.userName = "test";
      $scope.loginData.password = "test";
-     
+
      $scope.doLogin = function() {
 
      mainService.login($scope.loginData).then(function (result) {
           if (result.Id > 0)
           {
-            alert("login successfully.")
+            console.log("login successfully.");
           }else
           {
-            alert("login failed please check your username and password.")
+            console.log("login failed please check your username and password.");
           }
      });
   };
