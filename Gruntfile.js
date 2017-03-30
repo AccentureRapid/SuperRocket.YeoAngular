@@ -142,7 +142,8 @@ module.exports = function (grunt) {
     jscs: {
       options: {
         config: '.jscsrc',
-        verbose: true
+        verbose: true,
+        validateQuoteMarks: { "mark": "\"", "escape": true }
       },
       all: {
         src: [

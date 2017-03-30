@@ -8,12 +8,27 @@
  * Controller of the YeoAngular.controllers
  */
 angular.module('YeoAngular.controllers', [])
-  .controller('MainCtrl', ['$scope','mainService',function ($scope, mainService) {
+  .controller('MainCtrl', ['$scope','$log','mainService',function ($scope, $log, mainService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    
+    $scope.totalItems = 64;
+    $scope.currentPage = 4;
+
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+    };
+
+    $scope.pageChanged = function() {
+      $log.log('Page changed to: ' + $scope.currentPage);
+    };
+
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;
 
      $scope.loginData = {};
      $scope.loginData.userName = "test";
@@ -24,10 +39,10 @@ angular.module('YeoAngular.controllers', [])
      mainService.login($scope.loginData).then(function (result) {
           if (result.Id > 0)
           {
-            console.log("login successfully.");
+            //$log.log("login successfully.");
           }else
           {
-            console.log("login failed please check your username and password.");
+            //$log.log("login failed please check your username and password.");
           }
      });
   };

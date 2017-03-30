@@ -26,12 +26,12 @@ angular.module('YeoAngular.constants.module', [])
     })
 
     .provider('environmentSetting', ['YeoAngular.constants.environment', function (envs) {
-        var config_MOCK = {
+        var CONFIG_MOCK = {
             YeoAngularRoutes: {
                 login: 'json/GetLoginUser.json'
             }
         },
-        config_ENV = {
+        CONFIG_ENV = {
             YeoAngularRoutes: {
                 login: 'login'
             }
@@ -47,34 +47,34 @@ angular.module('YeoAngular.constants.module', [])
 
         this.setEnvironment = function (environment) {
             if (environment === envs.MOCK.ENV) {
-                config_MOCK.BASE_URL = envs.MOCK.BASE_URL;
-                config_MOCK.ESO_URL = envs.MOCK.ESO_URL;
-                config_MOCK.ADMIN_URL = envs.MOCK.ADMIN_URL;
-                config = config_MOCK;
+                CONFIG_MOCK.BASE_URL = envs.MOCK.BASE_URL;
+                CONFIG_MOCK.ESO_URL = envs.MOCK.ESO_URL;
+                CONFIG_MOCK.ADMIN_URL = envs.MOCK.ADMIN_URL;
+                config = CONFIG_MOCK;
             }
             else if (environment === envs.LOCAL.ENV) {
-                config_ENV.BASE_URL = envs.LOCAL.BASE_URL;
-                config_ENV.ESO_URL = envs.LOCAL.ESO_URL;
-                config_ENV.ADMIN_URL = envs.LOCAL.ADMIN_URL;
-                config = config_ENV;
+                CONFIG_ENV.BASE_URL = envs.LOCAL.BASE_URL;
+                CONFIG_ENV.ESO_URL = envs.LOCAL.ESO_URL;
+                CONFIG_ENV.ADMIN_URL = envs.LOCAL.ADMIN_URL;
+                config = CONFIG_ENV;
             }
             else if (environment === envs.DEV.ENV) {
-                config_ENV.BASE_URL = envs.DEV.BASE_URL;
-                config_ENV.ESO_URL = envs.DEV.ESO_URL;
-                config_ENV.ADMIN_URL = envs.DEV.ADMIN_URL;
-                config = config_ENV;
+                CONFIG_ENV.BASE_URL = envs.DEV.BASE_URL;
+                CONFIG_ENV.ESO_URL = envs.DEV.ESO_URL;
+                CONFIG_ENV.ADMIN_URL = envs.DEV.ADMIN_URL;
+                config = CONFIG_ENV;
             }
             else if (environment === envs.STAGE.ENV) {
-                config_ENV.BASE_URL = envs.STAGE.BASE_URL;
-                config_ENV.ESO_URL = envs.STAGE.ESO_URL;
-                config_ENV.ADMIN_URL = envs.STAGE.ADMIN_URL;
-                config = config_ENV;
+                CONFIG_ENV.BASE_URL = envs.STAGE.BASE_URL;
+                CONFIG_ENV.ESO_URL = envs.STAGE.ESO_URL;
+                CONFIG_ENV.ADMIN_URL = envs.STAGE.ADMIN_URL;
+                config = CONFIG_ENV;
             }
             else if (environment === envs.PROD.ENV) {
-                config_ENV.BASE_URL = envs.PROD.BASE_URL;
-                config_ENV.ESO_URL = envs.PROD.ESO_URL;
-                config_ENV.ADMIN_URL = envs.PROD.ADMIN_URL;
-                config = config_ENV;
+                CONFIG_ENV.BASE_URL = envs.PROD.BASE_URL;
+                CONFIG_ENV.ESO_URL = envs.PROD.ESO_URL;
+                CONFIG_ENV.ADMIN_URL = envs.PROD.ADMIN_URL;
+                config = CONFIG_ENV;
             }
         };
 
