@@ -49,8 +49,8 @@ angular
 
   RestangularProvider.setDefaultHttpFields({ cache: false });
   RestangularProvider.setDefaultHeaders({
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
   });
-  RestangularProvider.setMethodOverriders(["put", "patch"]);
+  RestangularProvider.setMethodOverriders(['put', 'patch']);
 
   }]);
