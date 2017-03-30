@@ -3,6 +3,10 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
 
+After it is ready, you will see
+
+![](https://github.com/AccentureRapid/SuperRocket.YeoAngular/blob/master/index.png)
+
 ## Prerequisition 
 
 Please make sure install ruby and run 
