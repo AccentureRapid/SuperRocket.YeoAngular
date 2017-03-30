@@ -1,7 +1,17 @@
-# pv
+# SuperRocket.YeoAngular
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
+
+## Prerequisition 
+
+Please make sure install ruby and run 
+
+`$ gem install compass`
+
+`npm install`
+
+`bower install`
 
 ## Build & development
 
