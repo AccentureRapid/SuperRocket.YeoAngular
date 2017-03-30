@@ -15,6 +15,10 @@ angular.module('YeoAngular.controllers', [])
       'Karma'
     ];
 
+     $scope.loginData = {};
+     $scope.loginData.userName = "test";
+     $scope.loginData.password = "test";
+     
      $scope.doLogin = function() {
 
      mainService.login($scope.loginData).then(function (result) {
