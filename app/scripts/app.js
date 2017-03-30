@@ -15,9 +15,11 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch','restangular','YeoAngular.services','YeoAngular.controllers','YeoAngular.constants.module'
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(['$routeProvider','$locationProvider','environmentSettingProvider','RestangularProvider',
+  function ($routeProvider, $locationProvider , environmentSettingProvider, RestangularProvider) {
+
     $locationProvider.html5Mode(true);
     $routeProvider
       .when('/', {
@@ -33,4 +35,22 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+      var currentEnvironment = 'LOCAL', //MOCK, LOCAL, DEV, STAGE, PROD
+      environment = '';
+
+  environmentSettingProvider.setEnvironment(currentEnvironment);
+  environment = environmentSettingProvider.$get();
+
+
+  // Restangular configuration
+  var baseUrl = environment.BASE_URL;
+  RestangularProvider.setBaseUrl(baseUrl);
+
+  RestangularProvider.setDefaultHttpFields({ cache: false });
+  RestangularProvider.setDefaultHeaders({
+      'Content-Type': 'application/json'
   });
+  RestangularProvider.setMethodOverriders(["put", "patch"]);
+
+  }]);
