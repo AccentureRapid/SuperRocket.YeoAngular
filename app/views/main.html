@@ -1,35 +1,59 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-  <p><a class="btn btn-lg btn-success" ng-click='doLogin()'>Login</a></p>
-</div>
-
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="row container">
+    <div class="pull-left">
+      <h3 class="">Case&nbsp;列表</h3>
+    </div>
+    <div class="pull-right">
+      <h2 class="">
+        <button type="button" class="btn btn-primary" ng-click="export();" ng-disabled="disabledButtonExport">
+            <i class="glyphicon glyphicon-save"></i>
+            导出数据
+          </button>
+        <button type="button" class="btn btn-primary" ng-click="OpenUploadView();">
+            <i class="glyphicon glyphicon-upload"></i>
+            上传数据
+          </button>
+      </h2>
+    </div>
+  </div>
+  <div ui-grid="gridOptions" class="grid" ui-grid-pagination ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize></div>
+  <div class="row container">
+    <div class="pull-left">
+      <h2 class="">
+        <button type="button" class="btn btn-primary" ng-disabled="disabledButtonDetermined" ng-click="batchJudge(2,true);">
+            设为已判定
+          </button>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-
-  <h4>Pagination</h4>
-  <ul uib-pagination 
-  total-items="bigTotalItems" 
-  ng-model="bigCurrentPage" 
-  max-size="maxSize" 
-  class="pagination-sm" 
-  boundary-links="true" rotate="false"></ul>
-
-  <h4>ui-grid</h4>
-  <div ui-grid="gridOptions" ui-grid-selection></div>
-</div>
+        <button type="button" class="btn btn-primary" ng-disabled="disabledButtonNotYetDetermined" ng-click="batchJudge(0,true);">
+            设为未判定
+          </button>
+      </h2>
+    </div>
+    <div class="col-md-6">
+      <div class="pager-container">
+        <div class="btn-group">
+          <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" items-per-page="itemsPerPage" ng-change="pageChanged()"
+            class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" boundary-links="true"
+            rotate="false"></ul>
+        </div>
+        <div class="btn-group paging-size-container" uib-dropdown>
+          <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>
+          {{itemsPerPage}}<span class="caret"></span>
+         </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li ng-repeat="size in pagingSizes"><a ng-click="setPagingSize(size)">{{size}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right">
+      <h2 class="">
+        <a class="btn btn-primary" ng-show="isAnalyzeProcessButtonShow"><i class="fa fa-spinner faa-spin animated"></i><lable>分析中...</a></button>
+              <button type="button" class="btn btn-primary" ng-disabled="disabledButtonStartToDetermine" ng-click="start();">
+            <i class="glyphicon glyphicon-user"></i>
+            开始判定
+        </button>
+              </h2>
+        </div>
+      </div>
+    </div>

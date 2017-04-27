@@ -1,1 +1,127 @@
-<p>This is the about view.</p>
+<div class="row marketing">
+
+    <div class="row container">
+        <div class="pull-left">
+            <h3 class="">Case&nbsp;判定</h3>
+        </div>
+    </div>
+    <div class="row container  ">
+        <div class="col-md-9">
+            <div class="row case-header-container">
+                <div class="col-md-3 clear-padding">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                               <button class="btn btn-default clear-padding clear-border sub-title font-bold padding-right-5" type="button">管理番号: </button>
+                        </span>
+                        <input type="text" class="form-control clear-border sub-title" ng-model="selectedCase.result.num">
+
+                    </div>
+                </div>
+                <div class="col-md-4 clear-padding">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                               <button class="btn btn-default clear-padding clear-border sub-title font-bold padding-right-5" type="button">相关番号: </button>
+                        </span>
+                        <input ng-disabled='isRelevantEditBoxReadonly' type="text" class="form-control sub-title margin-left-5px clear-corner" ng-blur="saveRelevantNumber()"
+                            ng-model="selectedCase.result.releventNum">
+                    </div>
+                </div>
+            </div>
+            <div class="row panel panel-default drug-list-container">
+                <div class="panel-heading clear-padding sm-padding"><label>相关药物:</label></div>
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li ng-repeat="drug in selectedCase.result.drugList"><label ng-bind='drug'></label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row panel panel-default">
+                <div class="panel-heading clear-padding sm-padding">
+                    <label>有害事象:</label>
+                    <div class="pull-right"><button class="glyphicon glyphicon-plus-sign clear-border clear-padding clear-background" ng-disabled="isRelevantEditBoxReadonly"
+                            ng-click="openManageDataView();"></button></div>
+                </div>
+                <div class="panel-body form-inline">
+                    <div class="form-group col-md-4 clear-padding">
+                        <label for="pv-dead">死亡:</label>
+                        <ui-select ng-disabled="isRelevantEditBoxReadonly" multiple remove-selected="false" search-enabled="true" sortable="true"
+                            close-on-select="false" ng-model="$parent.selectedDead" theme="bootstrap" position='down' ng-change="selectedDeadChanged();">
+                            <ui-select-match placeholder="请选择有害事象">
+                                <span ng-bind="$item.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices position='down' repeat="item in applicationData.events | filter:$select.search | limitTo: 100">
+                                <span ng-bind-html="item.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="form-group col-md-4 clear-padding">
+                        <label for="pv-serious">重笃:</label>
+                        <ui-select ng-disabled="isRelevantEditBoxReadonly" multiple remove-selected="false" search-enabled="true" sortable="true"
+                            close-on-select="false" ng-model="$parent.selectedSerious" theme="bootstrap" ng-change="selectedSeriousChanged();">
+                            <ui-select-match placeholder="请选择有害事象">
+                                <span ng-bind="$item.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices position='down' repeat="item in applicationData.events | filter:$select.search | limitTo: 100">
+                                <span ng-bind-html="item.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="form-group col-md-4 clear-padding">
+                        <label for="pv-nonserious">非重笃:</label>
+                        <ui-select ng-disabled="isRelevantEditBoxReadonly" multiple remove-selected="false" search-enabled="true" sortable="true"
+                            close-on-select="false" ng-model="$parent.selectedNonserious" theme="bootstrap" position='down' ng-change="selectedNonseriousChanged();">
+                            <ui-select-match placeholder="请选择有害事象">
+                                <span ng-bind="$item.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices position='down' repeat="item in applicationData.events | filter:$select.search | limitTo: 100">
+                                <span ng-bind-html="item.name | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="well panel panel-default description-editor" ng-bind-html="selectedCase.result.content" contenteditable="true"
+                    ng-model="awesomeThings">
+                </div>
+
+                <div class="pull-right">
+                    <button type="button" class="btn btn-primary" ng-click="done();" ng-show="showButtonSave">
+                        <i class="glyphicon glyphicon-ok"></i>
+                        完成
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-click="back();">
+                        <i class="glyphicon glyphicon-arrow-left"></i>
+                        返回
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" scroll-to-fixed="{ 'top': 150 }">
+            <h4>AI&nbsp;判定结果</h4>
+            <div class="well">
+                <div class="row form-group">
+                    <label>重笃性</label>
+                    <hr>
+                    <pretty-radio class="form-control clear-border clear-padding" ng-repeat="s in selectedCase.result.menuTree" value="s.categoryId"
+                        ng-change="clickRadio(s);" ng-model="checkedObject.checkedSeriousLevel" label="s.categoryName">
+                    </pretty-radio>
+                </div>
+                <div class="row">
+                    <label>有害事象</label>
+                    <hr>
+                    <div class="form-inline" ng-repeat="d in selectedSeriousObject.events">
+                        <div class="form-group">
+                            <color-picker class="pull-left adjust-color-picker" options="options" event-api="eventApi" ng-model="d.color"></color-picker>
+                            <pretty-checkbox class="form-control clear-border clear-padding" multiple ng-model="selectedSeriousObject.checkedDangerous"
+                                label="d.eventName" value="d.eventId" ng-click="checkDangerousChanged(d);"></pretty-checkbox>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,6 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 
 .browsehappy {
@@ -10,10 +11,24 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
+h1, h2, h3, h4, h5 {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    font-weight: 700;
+    padding: 0;
+}
+
 body {
   padding: 0;
 }
-
+  hr{
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+h1, h2, h3, h4, h5 {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -24,8 +39,7 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -47,30 +61,99 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
-
+  margin: 0px 0;
+  margin-bottom: 15px;
   p + h4 {
     margin-top: 28px;
   }
 }
 
+.pager-container{
+  margin-top: 6px;
+}
+
+.grid {
+  width: auto;
+  height: auto;
+}
+.ui-grid-render-container-body .ui-grid-canvas{
+ height: auto !important;
+}
+.login-panel
+{
+  margin-right: 0px;
+}
+//angular-pretty-checkable
+// .bloody-hand-checkable .prettycheckbox>a,.bloody-hand-checkable  .prettyradio>a{
+//     background-color: red;
+// }
+.bloody-hand-checkable>a, .bloody-hand-checkable>a{
+    background-color: red;
+}
+.green-hand-checkable>a, .green-hand-checkable>a{
+    background-color: green;
+}
+.yellow-hand-checkable>a, .yellow-hand-checkable>a{
+    background-color: yellow;
+}
+.case-header-container{
+  margin-top:15px;
+}
+.manage-serious-data-radios-container{
+  height:33px;
+  display: block;
+  border-color: rgb(204, 204, 204);
+  border-width: 1px;
+  border-style: solid;
+}
+.drug-list-container
+{
+  margin-top:7px;
+}
+.description-editor{
+  min-height: 262px;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+.ui-select-container 
+{
+  width:200px !important;
+}
+.ui-select-choices{
+  min-height: 300px;
+  max-height: 400px;
+  width: auto !important;
+}
+#single-button{
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-top: -4px;
+  height: 30px;
+}
+.padding-right-5{
+  padding-right:5x!important;
+}
+//color-picker
+.adjust-color-picker{
+   padding-top: 3px;
+}
+.color-picker-wrapper.color-picker-swatch-only .input-group .input-group-addon{
+  width: 24px;
+  border: none;
+  border-radius: 3px;
+}
+.color-picker-swatch .color-picker-swatch-left .input-group-addon{
+  width: 24px;
+  border: none;
+  border-radius: 3px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1280px;
   }
 
   /* Remove the padding we set earlier */
@@ -82,10 +165,81 @@ body {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
+
+.well{
+    background: rgba(255, 255, 255, 0.9);
+}
+.sub-title{
+  font-size:18px;
+}
+.font-bold{
+  font-weight:bold;
+}
+.ui-select-search 
+{
+  width:210px;
+}
+.ui-select-match-item{
+  max-width:192px !important;
+  white-space: normal !important;
+  text-align: left !important;
+  word-break:break-all !important;
+}
+.clear-border
+{
+  border: 0px !important;
+  border-image: none !important;
+  border-radius: 0px !important;
+  box-shadow:none !important;
+}
+.clear-background
+{
+  background-color:transparent !important;
+}
+.clear-border-radius
+{
+  border-radius: 0px !important;
+}
+.clear-left-padding
+{
+  padding-left:0px;
+}
+.margin-left-5px{
+  margin-left:5px;
+}
+.clear-corner{
+  border-radius: 0px !important;
+}
+.clear-padding
+{
+  padding:0px;
+}
+.border-left-solid{
+  border-left-width: 1px;
+  border-left:solid;
+  border-left-color: rgb(204, 204, 204);
+}
+.sm-padding
+{
+  padding-right:15px;
+  padding-left:15px;
+  padding-top:7px;
+  padding-bottom: 5px;
+}
+.clear-margin
+{
+  margin:0px;
+}
+.login-container
+{
+  height:500px;
+  padding-top:80px;
+}
+
 }

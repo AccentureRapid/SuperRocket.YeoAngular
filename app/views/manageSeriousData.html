@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h4 class="modal-title">添加</h4>
+</div>
+<div class="modal-body">
+    <form name="form">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">有害事象</span>
+            <input name="dangerousItems" type="text" class="form-control clear-border-radius" placeholder="" aria-describedby="basic-addon1"
+                ng-model="seriousObjectText" required>
+        </div>
+        <div class="form-group input-group">
+            <span class="input-group-addon" id="basic-addon2">事象类别</span>
+            <div class="manage-serious-data-radios-container">
+                <pretty-radio aria-describedby="basic-addon2" class="col-md-3 text-center" ng-repeat="c in category" value="c.id" ng-model="checkedCategory.checkedValue"
+                    ng-click="changeCategory(c)" label="c.name">
+                </pretty-radio>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="submit" ng-disabled="form.dangerousItems.$invalid" ng-click="submit()">保存</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">关闭</button>
+</div>
